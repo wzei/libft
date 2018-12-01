@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 19:35:09 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/01 05:54:01 by wzei             ###   ########.fr       */
+/*   Created: 2018/12/01 00:25:23 by wzei              #+#    #+#             */
+/*   Updated: 2018/12/01 00:43:33 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_isacsii(int c)
 {
-	int					iter;
-	const unsigned char	*up_s1;
-	const unsigned char	*up_s2;
-
-	iter = 0;
-	up_s1 = (const unsigned char *)s1;
-	up_s2 = (const unsigned char *)s2;
-	while (iter < n)
-	{
-		if (up_s1[iter] != up_s2[iter])
-			return (up_s1[iter] - up_s2[iter]);
-	}
+	if (c >= 0 && c <= 255)
+		return (1);
 	return (0);
 }

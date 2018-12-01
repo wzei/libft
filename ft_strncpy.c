@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 19:35:09 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/01 05:54:01 by wzei             ###   ########.fr       */
+/*   Created: 2018/11/30 21:05:47 by wzei              #+#    #+#             */
+/*   Updated: 2018/11/30 23:10:04 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strncpy(char *dest, const char *src, size_t len)
 {
-	int					iter;
-	const unsigned char	*up_s1;
-	const unsigned char	*up_s2;
+	char	*ret;
 
-	iter = 0;
-	up_s1 = (const unsigned char *)s1;
-	up_s2 = (const unsigned char *)s2;
-	while (iter < n)
+	ret = dest;
+	while (/*exit cond*/)
 	{
-		if (up_s1[iter] != up_s2[iter])
-			return (up_s1[iter] - up_s2[iter]);
-	}
-	return (0);
+		/*copying routine*/
+	}	
+
+	return (ret);
 }
