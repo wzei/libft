@@ -5,19 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/29 19:44:45 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/01 05:52:56 by wzei             ###   ########.fr       */
+/*   Created: 2018/11/22 01:48:02 by wzei              #+#    #+#             */
+/*   Updated: 2018/12/04 21:04:09 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_strlen(char *str)
 {
-	int	iter;
+	int count;
 
-	iter = 0;
-	while (s[iter] != 0)
-		iter++;
-	return (iter);
+	count = 0;
+	if (str != 0)
+	{
+		while (str[count] != '\0')
+			count++;
+	}
+	return (0);
 }
