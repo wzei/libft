@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 23:10:20 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/02 00:50:43 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/07 11:39:47 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	ft_strcat(char *s1, const char *s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
 	ft_strcpy(s1 + ft_strlen(s1), s2);
 	return (s1);

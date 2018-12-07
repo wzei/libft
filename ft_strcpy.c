@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 19:55:04 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/02 00:25:37 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/07 11:41:08 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strcpy(char *dest, const char *src)
 	char	*ret;
 
 	ret = dest;
-	while (*dest = *src)
+	while ((*dest = *src))
 	{
 		dest++;
 		src++;

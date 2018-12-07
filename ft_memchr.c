@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 16:26:36 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/02 03:15:14 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/07 11:47:04 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while(iter < n)
 	{
 		if(up_s[iter] == uc_c)
-		   return ((void *)(us_p + iter);
-		iter++;	   
+		   return ((void *)(up_s + iter));
+		iter++;
 	}
 	return (NULL);
 }

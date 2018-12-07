@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 20:45:03 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/06 01:55:43 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/07 11:47:42 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	ft_memdel(void **ap);
 void	*ft_memset(void *s, int c, size_t n);
-char	ft_strcat(char *s1, const char *s2);
+char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strchr(const char *s, int c);
 void	ft_strclr(char *s);
 int		ft_strcmp(char *s1, char *s2);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 03:04:38 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/02 03:14:52 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/07 11:50:01 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strrchar(const char *s, int c)
 	char chr;
 
 	save = NULL;
-	while (chr = *s)
+	while ((chr = *s))
 	{
-		if (chr == ch)
+		if (chr == c)
 			save = (char *)s;
 		s++;
 	}

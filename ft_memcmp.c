@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 19:35:09 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/01 05:54:01 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/07 11:39:05 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int					iter;
+	unsigned int					iter;
 	const unsigned char	*up_s1;
 	const unsigned char	*up_s2;
 
