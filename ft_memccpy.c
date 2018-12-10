@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 01:57:41 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/10 21:11:03 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/10 21:11:57 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 				return (dst);
 		}
 	}
-	return (NULL);	
+	return (NULL);
 }
