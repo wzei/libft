@@ -3,28 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:46:33 by wzei              #+#    #+#             */
-/*   Updated: 2018/11/27 01:15:34 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/11 04:38:51 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+inline static void	gen_mask(unsigned long int *m, int c)
 {
-	unsigned char	u_c;
-	unsigned char	*uptr_s;
-	size_t			iter;
+	unsigned long int	u_c;
+	size_t				acc;
 
+	*m = 0;
+	u_c = (unsigned long int)c;
+	acc = sizeof(unsigned long int) / sizeof(char);
+	while (acc--)
+		*m = (*m | u_c) << sizeof(char);
+}
+
+void				*ft_memset(void *s, int c, size_t n)
+{
+	unsigned long int	u_mask;
+	unsigned long int	*ulp_s;
+	unsigned char		*ucp_s;
+	unsigned char		u_c;
+	size_t				iter;
+
+	iter = n / sizeof(long int);
+	ulp_s = (unsigned long int *)s;
+	ucp_s = (unsigned char *)s;
+	u_mask = 0;
 	u_c = (unsigned char)c;
-	uptr_s = (unsigned char*)s;
-	iter = 0;
-	while (iter < n)
-	{
-		uptr_s[iter] = u_c;
-		iter++;
-	}
+	gen_mask(u_mask, c);
+	while (iter-- > 0)
+		*ulp_s++ = u_mask;
+	iter = n % sizeof(long int);
+	while (iter-- > 0)
+		ucp_s[n - iter] = u_c;
 	return (s);
 }
