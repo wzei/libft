@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:46:33 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/11 04:42:41 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/11 05:44:01 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,13 @@ inline static void	gen_mask(unsigned long int *m, int c)
 	size_t				acc;
 
 	*m = 0;
-	u_c = (unsigned long int)c;
+	u_c = 0 + (unsigned char)c;
 	acc = sizeof(unsigned long int) / sizeof(char);
 	while (acc--)
-		*m = (*m | u_c) << sizeof(char);
+	{
+		*m |= u_c;
+		u_c <<= 8;
+	}
 }
 
 void				*ft_memset(void *s, int c, size_t n)
@@ -42,6 +45,6 @@ void				*ft_memset(void *s, int c, size_t n)
 		*ulp_s++ = u_mask;
 	iter = n % sizeof(long int);
 	while (iter-- > 0)
-		ucp_s[n - iter] = u_c;
+		ucp_s[n - iter - 1] = u_c;
 	return (s);
 }
