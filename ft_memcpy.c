@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 01:40:40 by wzei              #+#    #+#             */
-/*   Updated: 2018/11/29 20:56:27 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/11 08:19:59 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*uptr_dst;
-	unsigned char	*uptr_src;
-	size_t			iter;
+	unsigned long int	*upl_dst;
+	unsigned long int	*upl_src;
+	unsigned char		*upc_dst;
+	unsigned char		*upc_src;
+	size_t				iter;
 
-	uptr_dst = (unsigned char*)dst;
-	uptr_src = (unsigned char*)src;
-	iter = 0;
-	while (iter < n)
-	{
-		uptr_dst[iter] = uptr_src[iter];
-		iter++;
-	}
+	upl_dst = (unsigned long int*)dst;
+	upl_src = (unsigned long int*)src;
+	upc_dst = (unsigned char*)dst;
+	upc_src = (unsigned char*)src;
+	iter = n / sizeof(unsigned long int);
+	while (iter--)
+		*upl_dst++ = *upl_src++;
+	iter = n % sizeof(unsigned long int);
+	while (iter--)
+		upc_dst[n - iter - 1] = upc_src[n - iter - 1];
 	return (dst);
 }
