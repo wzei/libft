@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 00:46:33 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/11 05:44:01 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/11 05:53:55 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void				*ft_memset(void *s, int c, size_t n)
 	u_mask = 0;
 	u_c = (unsigned char)c;
 	gen_mask(&u_mask, c);
-	while (iter-- > 0)
+	while (iter--)
 		*ulp_s++ = u_mask;
 	iter = n % sizeof(long int);
-	while (iter-- > 0)
+	while (iter--)
 		ucp_s[n - iter - 1] = u_c;
 	return (s);
 }
