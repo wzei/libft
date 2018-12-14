@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 02:51:07 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/07 11:51:07 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/09 20:30:59 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	ch;
 
 	ch = c;
-	while (s != NULL)
+	while (1)
 	{
 		if (*s == ch)
 			return ((char *)s);
