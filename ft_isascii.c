@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/01 00:25:23 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/01 00:43:33 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/09 18:31:30 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isacsii(int c)
+int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 255)
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
