@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 19:47:03 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/06 01:58:07 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/14 07:47:20 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memalloc(size_t size)
 		iter = 0;
 		while (iter < size)
 		{
-			uc[iter] = 0;
+			uc[iter++] = 0;
 		}
 	}
 	return (ret);
