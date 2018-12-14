@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 19:35:09 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/07 11:39:05 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/09 17:24:01 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned int					iter;
-	const unsigned char	*up_s1;
-	const unsigned char	*up_s2;
+	unsigned int			iter;
+	const unsigned char		*up_s1;
+	const unsigned char		*up_s2;
 
 	iter = 0;
 	up_s1 = (const unsigned char *)s1;
@@ -25,6 +25,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	{
 		if (up_s1[iter] != up_s2[iter])
 			return (up_s1[iter] - up_s2[iter]);
+		iter++;
 	}
 	return (0);
 }
