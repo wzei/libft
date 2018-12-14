@@ -6,27 +6,34 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 08:52:59 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/07 11:33:01 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/14 05:16:27 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 #define UINTPTR unsigned long *
+#define C_UINTPTR const unsigned long *
 #define INTPTR long *
 #define UINT unsigned long
 
-static void	*long_move(long *dst, const long *src, size_t l_len)
+static void	*long_move(UINTPTR dst, C_UINTPTR src, size_t l_len)
 {
-	while (l_len-- > 0)
+	while (l_len > 0)
+	{
 		dst[l_len - 1] = src[l_len - 1];
+		l_len--;
+	}
 	return ((void*)dst);
 }
 
-static void	*move(char *dst, const char *src, size_t len)
+static void	*move(unsigned char *dst, unsigned const char *src, size_t len)
 {
-	while (len-- > 0)
+	while (len > 0)
+	{
 		dst[len - 1] = src[len - 1];
+		len--;
+	}
 	return ((void*)dst);
 }
 
@@ -44,6 +51,6 @@ void		*ft_memmove(void *dst, const void *src, size_t len)
 	if ((UINTPTR)dst < (UINTPTR)src)
 		return (ft_memcpy(dst, src, len));
 	if (chck_lng_cnd(dst, src, len))
-		return (long_move((INTPTR)dst, (INTPTR)src, len / sizeof(long)));
-	return (move((char *)dst, (char *)src, len));
+		return (long_move((UINTPTR)dst, (C_UINTPTR)src, len / sizeof(long)));
+	return (move((unsigned char *)dst, (unsigned const char *)src, len));
 }
