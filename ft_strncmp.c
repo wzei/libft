@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: wzei <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 04:43:58 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/02 04:45:37 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/14 07:32:30 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 int	ft_strncmp(char *s1, char *s2, size_t n)
 {
+	unsigned char	*u_s1;
+	unsigned char	*u_s2;
 	int iter;
 
 	if (n == 0)
 		return (0);
 	iter = 0;
-	while (s1[iter] != '\0' && s2[iter] != '\0' && n != 0)
+	u_s1 = (unsigned char *)s1;
+	u_s2 = (unsigned char *)s2;
+	while (u_s1[iter] != '\0' && u_s2[iter] != '\0' && n != 0)
 	{
-		if (s1[iter] != s2[iter])
+		if (u_s1[iter] != u_s2[iter])
 			break ;
 		iter++;
 		n--;
 	}
-	return (s1[iter] - s2[iter]);
+	return (u_s1[iter] - u_s2[iter]);
 }
