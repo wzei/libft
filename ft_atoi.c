@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 00:27:08 by wzei              #+#    #+#             */
+/*   Created: 2018/12/16 08:38:54 by wzei              #+#    #+#             */
 /*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	char	*ret;
+	int i;
+	int nbr;
+	int negative;
 
-	ret = dest;
-	while ((n > 0) && (*dest = *src))
+	nbr = 0;
+	negative = 0;
+	i = 0;
+	while (ft_iswhtspc(str[i]))
+		i++;
+	if (str[i] == '-')
+		negative = 1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (ft_isdigit(str[i]))
 	{
-		dest++;
-		src++;
-		n--;
+		nbr *= 10;
+		nbr += (int)str[i] - '0';
+		i++;
 	}
-	while (n > 0)
-	{
-		*dest++ = 0;
-		n--;
-	}
-	return (ret);
+	if (negative == 1)
+		return (-nbr);
+	else
+		return (nbr);
 }

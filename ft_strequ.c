@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 00:27:08 by wzei              #+#    #+#             */
+/*   Created: 2018/12/14 19:48:32 by wzei              #+#    #+#             */
 /*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	char	*ret;
+	unsigned char	*ucp_s1;
+	unsigned char	*ucp_s2;
 
-	ret = dest;
-	while ((n > 0) && (*dest = *src))
+	ucp_s1 = (unsigned char *)s1;
+	ucp_s2 = (unsigned char *)s2;
+	if (!s1 || !s2)
+		return (0);
+	while (*ucp_s1++ == *ucp_s2++)
 	{
-		dest++;
-		src++;
-		n--;
+		if (*ucp_s1 == 0 && *ucp_s2 == 0)
+			return (1);
 	}
-	while (n > 0)
-	{
-		*dest++ = 0;
-		n--;
-	}
-	return (ret);
+	return (0);
 }

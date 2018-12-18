@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 00:27:08 by wzei              #+#    #+#             */
+/*   Created: 2018/12/14 13:10:34 by wzei              #+#    #+#             */
 /*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+void	ft_putchar(char c)
 {
-	char	*ret;
+	unsigned char			ch;
+	static unsigned char	buf[2];
 
-	ret = dest;
-	while ((n > 0) && (*dest = *src))
+	ch = (unsigned char)c;
+	if ((ch & 0x80) != 0)
 	{
-		dest++;
-		src++;
-		n--;
+		if (((ch & 0xC0) != 0) && ((~ch) & 0x20) != 0)
+		{
+			buf[0] = ch;
+			return ;
+		}
+		if (((~ch) & 0x70) != 0)
+		{
+			buf[1] = ch;
+			write(1, &buf, 2);
+			return ;
+		}
 	}
-	while (n > 0)
-	{
-		*dest++ = 0;
-		n--;
-	}
-	return (ret);
+	write(1, &ch, 1);
 }

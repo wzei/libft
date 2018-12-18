@@ -1,32 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 00:27:08 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
+/*   Created: 2018/12/17 21:43:22 by wzei              #+#    #+#             */
+/*   Updated: 2018/12/18 02:43:29 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_itoa(int n)
 {
-	char	*ret;
+	int		size;
+	int		negative;
+	int		tmp;
+	char	*array;
 
-	ret = dest;
-	while ((n > 0) && (*dest = *src))
+	negative = 0;
+	if (n < 0)
+		negative = 1;
+	tmp = n;
+	size = 1;
+	while ((tmp /= 10))
+		size++;
+	array = ft_strnew(size + negative);
+	if (array == NULL)
+		return (NULL);
+	if (negative)
+		array[0] = '-';
+	while (size--)
 	{
-		dest++;
-		src++;
-		n--;
+		array[size + negative] = (negative ? -(n % 10) : (n % 10)) + '0';
+		n /= 10;
 	}
-	while (n > 0)
-	{
-		*dest++ = 0;
-		n--;
-	}
-	return (ret);
+	return (array);
 }

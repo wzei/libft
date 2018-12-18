@@ -6,13 +6,13 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/22 01:48:02 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/14 10:25:53 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+int	ft_strlen(const char *str)
 {
 	const char *s;
 

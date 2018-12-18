@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_iswhtspc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 00:27:08 by wzei              #+#    #+#             */
+/*   Created: 2018/12/17 19:07:02 by wzei              #+#    #+#             */
 /*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+int	ft_iswhtspc(int c)
 {
-	char	*ret;
-
-	ret = dest;
-	while ((n > 0) && (*dest = *src))
-	{
-		dest++;
-		src++;
-		n--;
-	}
-	while (n > 0)
-	{
-		*dest++ = 0;
-		n--;
-	}
-	return (ret);
+	if ((c >= '\t' && c <= '\r') || c == ' ')
+		return (1);
+	return (0);
 }

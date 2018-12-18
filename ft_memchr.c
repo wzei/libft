@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/29 16:26:36 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/07 11:47:04 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/16 08:46:57 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	uc_c = (unsigned char)c;
 	up_s = (unsigned char*)s;
 	iter = 0;
-	while(iter < n)
+	while (iter < n)
 	{
-		if(up_s[iter] == uc_c)
-		   return ((void *)(up_s + iter));
+		if (up_s[iter] == uc_c)
+			return ((void *)(up_s + iter));
 		iter++;
 	}
 	return (NULL);

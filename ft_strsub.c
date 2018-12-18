@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/02 00:27:08 by wzei              #+#    #+#             */
+/*   Created: 2018/12/14 20:05:23 by wzei              #+#    #+#             */
 /*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
+	size_t	s_len;
 	char	*ret;
 
-	ret = dest;
-	while ((n > 0) && (*dest = *src))
+	ret = NULL;
+	if (!s)
+		return (NULL);
+	s_len = (size_t)ft_strlen((char *)s);
+	if ((len > s_len) || (start > s_len))
+		return (NULL);
+	if (!(ret = (char *)malloc((len + 1) * sizeof(char))))
+		return (NULL);
+	ret[len] = '\0';
+	while (len)
 	{
-		dest++;
-		src++;
-		n--;
-	}
-	while (n > 0)
-	{
-		*dest++ = 0;
-		n--;
+		ret[len - 1] = s[start + len - 1];
+		len--;
 	}
 	return (ret);
 }
