@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 20:20:18 by wzei              #+#    #+#             */
-/*   Updated: 2019/01/05 11:00:45 by wzei             ###   ########.fr       */
+/*   Updated: 2019/01/05 11:07:59 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ long			ft_strtol(const char *nptr, char **endptr, int base)
 	}
 	else if (sgn == -1)
 		acc = -(acc);
-	if (endptr != 0)
+	if (endptr != NULL)
 		*endptr = (char *)(any ? s - 1 : nptr);
 	return (acc);
 }
