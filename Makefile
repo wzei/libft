@@ -10,7 +10,8 @@ OBJ= ft_atoi.o ft_bzero.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o \
 	ft_strjoin.o ft_strlcat.o ft_strlen.o ft_strmap.o ft_strmapi.o ft_strncat.o \
 	ft_strncmp.o ft_strncpy.o ft_strnequ.o ft_strnew.o ft_strnstr.o ft_strrchr.o \
 	ft_strsplit.o ft_strstr.o ft_strsub.o ft_strtrim.o ft_tolower.o ft_toupper.o \
-	ft_isupper.o ft_strtol.o ft_strnotwhgt.o ft_strsgnstat.o
+	ft_isupper.o ft_strtol.o ft_strnotwhgt.o ft_strsgnstat.o ft_lstnew.o \
+	ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o
 
 all: $(NAME)
 
@@ -188,6 +189,24 @@ ft_strnotwhgt.o: ft_strnotwhgt.c
 
 ft_strsgnstat.o: ft_strsgnstat.c
 	gcc -Wall -Wextra -Werror -c -o ft_strsgnstat.o ft_strsgnstat.c
+
+ft_lstnew.o: ft_lstnew.c
+	gcc -Wall -Wextra -Werror -c -o ft_lstnew.o ft_lstnew.c
+
+ft_lstdelone.o: ft_lstdelone.c
+	gcc -Wall -Wextra -Werror -c -o ft_lstdelone.o ft_lstdelone.c
+
+ft_lstdel.o: ft_lstdel.c
+	gcc -Wall -Wextra -Werror -c -o ft_lstdel.o ft_lstdel.c
+
+ft_lstadd.o: ft_lstadd.c
+	gcc -Wall -Wextra -Werror -c -o ft_lstadd.o ft_lstadd.c
+
+ft_lstiter.o: ft_lstiter.c
+	gcc -Wall -Wextra -Werror -c -o ft_lstiter.o ft_lstiter.c
+
+ft_lstmap.o: ft_lstmap.c
+	gcc -Wall -Wextra -Werror -c -o ft_lstmap.o ft_lstmap.c
 
 clean:
 	/bin/rm -f $(OBJ)
