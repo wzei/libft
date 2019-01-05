@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/04 20:20:18 by wzei              #+#    #+#             */
-/*   Updated: 2019/01/05 09:01:58 by wzei             ###   ########.fr       */
+/*   Updated: 2019/01/05 11:00:45 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define LONG_MIN ((long)(~LONG_MAX))
 #endif
 
-static size_t			proc_base(const char *inp, int *bs)
+static size_t	proc_base(const char *inp, int *bs)
 {
 	const char	*s;
 
@@ -39,7 +39,7 @@ static size_t			proc_base(const char *inp, int *bs)
 	return (s - inp);
 }
 
-static int				chk_valid_char(int c)
+static int		chk_valid_char(int c)
 {
 	if (ft_isdigit(c))
 	{
@@ -54,46 +54,43 @@ static int				chk_valid_char(int c)
 	return (-1);
 }
 
-static unsigned long	proc_digits(int sgn, int base, int *any, const char *s)
+static void		init_lim(unsigned long *o, int *l, int sgn, int base)
+{
+	*o = ((sgn == -1) ? -(unsigned long)LONG_MIN : LONG_MAX);
+	*l = (int)(*o % (unsigned long)base);
+	*o /= (unsigned long)base;
+	return ;
+}
+
+static char		*proc_digits(int sb, unsigned long *ac, int *an, const char *s)
 {
 	unsigned long	cutoff;
 	int				cutlim;
-	unsigned long	acc;
 	int				c;
+	int				base;
 
-	cutoff = ((sgn == -1) ? -(unsigned long)LONG_MIN : LONG_MAX);
-	cutlim = (int)(cutoff % (unsigned long)base);
-	cutoff /= (unsigned long)base;
-	acc = 0;
-	*any = 0;
+	base = ((sb < 0) ? -sb : sb);
+	init_lim(&cutoff, &cutlim, sb / base, base);
+	*ac = 0;
+	*an = 0;
 	while ((c = *s++))
 	{
 		if ((c = chk_valid_char(c)) == -1)
 			break ;
 		if (c >= base)
 			break ;
-		if (*any < 0 || acc > cutoff || (acc == cutoff && c > cutlim))
-			*any = -1;
+		if (*an < 0 || *ac > cutoff || (*ac == cutoff && c > cutlim))
+			*an = -1;
 		else
 		{
-			*any = 1;
-			acc = acc * base + c;
+			*an = 1;
+			*ac = *ac * base + c;
 		}
 	}
-	return (acc);
+	return ((char *)s);
 }
 
-static void				prepare_return(int *any, int sgn, unsigned long *acc)
-{
-	if (*any < 0)
-	{
-		*acc = ((sgn == -1) ? LONG_MIN : LONG_MAX);
-	}
-	else if (sgn == -1)
-		*acc = -(*acc);
-}
-
-long					ft_strtol(const char *nptr, char **endptr, int base)
+long			ft_strtol(const char *nptr, char **endptr, int base)
 {
 	const char		*s;
 	unsigned long	acc;
@@ -105,8 +102,14 @@ long					ft_strtol(const char *nptr, char **endptr, int base)
 	s = ft_strnotwhgt(nptr);
 	s = ft_strsgnstat(s, &sgn);
 	s += proc_base(s, &base);
-	acc = proc_digits(sgn, base, &any, s);
-	prepare_return(&any, sgn, &acc);
+	base = ((sgn == 0) ? ((sgn + 1) * base) : (sgn * base));
+	s = proc_digits(base, &acc, &any, s);
+	if (any < 0)
+	{
+		acc = ((sgn == -1) ? LONG_MIN : LONG_MAX);
+	}
+	else if (sgn == -1)
+		acc = -(acc);
 	if (endptr != 0)
 		*endptr = (char *)(any ? s - 1 : nptr);
 	return (acc);
