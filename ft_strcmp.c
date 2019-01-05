@@ -6,13 +6,13 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 04:41:37 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/31 01:53:10 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned char	*u_s1;
 	unsigned char	*u_s2;
