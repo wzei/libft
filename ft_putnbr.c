@@ -6,7 +6,7 @@
 /*   By: wzei <wzei@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/14 16:47:05 by wzei              #+#    #+#             */
-/*   Updated: 2018/12/18 02:32:28 by wzei             ###   ########.fr       */
+/*   Updated: 2018/12/31 01:54:01 by wzei             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		ft_putnbr(int n)
 	acc = 1;
 	iter = 0;
 	init_arr(arr);
-	while ((inp / acc) > 1)
+	while ((inp / acc) > 9)
 		acc *= 10;
 	while (acc != 0)
 	{
